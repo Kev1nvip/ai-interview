@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 项目特定忽略规则
+models/*
+.env
+*.wav
+*.mp3
+*.ogg
+
+# 通用
+*.pyc
+.vscode
+.DS_Store
