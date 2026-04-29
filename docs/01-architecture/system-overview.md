@@ -76,3 +76,13 @@
 ### 前端组输出
 - 页面交互状态
 - Live2D动画状态
+
+---
+## 5. 数据存储
+
+data/
+└── sessions/
+    └── {session_id}/          # 每次面试一个文件夹
+        ├── meta.json          # 简历+JD+元数据
+        ├── conversation.jsonl # 对话历史（每行一个JSON）
+        └── report.json        # 最终面试报告
