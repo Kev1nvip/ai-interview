@@ -16,6 +16,7 @@
 ```text
 ai-interview/
 ├── assets/         # 静态资源（图片、样式、Live2D模型等）
+├── config/         # 全局配置文件 (如 config.yaml)
 ├── data/           # 数据存储
 │   └── sessions/   # 每次面试的会话数据与报告 (meta.json, conversation.jsonl, report.json)
 ├── docs/           # 项目文档总览与架构设计
@@ -24,15 +25,21 @@ ai-interview/
 │   ├── 03-voice-interaction/    # 语音交互组文档
 │   ├── 04-frontend-integration/ # 页面集成组文档
 │   └── 05-collaboration/        # 开发协作和里程碑管理
+├── logs/           # 系统运行日志输出目录
 ├── models/         # 本地模型文件存储目录（Qwen、FunASR、CosyVoice等）
 ├── src/            # 核心源代码
+│   ├── app.py      # Streamlit 前端页面与系统入口文件
 │   ├── asr/        # 语音识别模块 (FunASR)
 │   ├── interview/  # 面试业务逻辑控制
 │   ├── live2d/     # 虚拟人集成与渲染
 │   ├── llm/        # 大模型交互与提示词工程 (Qwen)
-│   └── tts/        # 语音合成模块 (CosyVoice)
+│   ├── schemas/    # 统一定义各模块交互的数据结构 (如 Pydantic Models)
+│   ├── tts/        # 语音合成模块 (CosyVoice)
+│   └── utils/      # 公用工具模块 (日志、音频处理、文件读写等)
 ├── test/           # 单元测试与集成测试脚本
-├── README.md       # 项目说明文档
+├── .env.example    # 环境变量配置模板
+├── requirements.txt# 项目 Python 依赖列表
+└── README.md       # 项目说明文档
 ```
 
 ## 🧩 核心模块
@@ -47,7 +54,7 @@ ai-interview/
 - 使用 FunASR 进行语音到文本的精准转换。
 - 使用 Fun-CosyVoice3 将 AI 面试官的文本回复转换为语音。
 
-### 3. 页面集成模块 (Frontend & `src/live2d`)
+### 3. 页面集成模块 (`src/app.py` & `src/live2d`)
 - 采用 Streamlit 搭建交互式 Web 页面，展示对话历史与录音状态。
 - 集成 Live2D，实现虚拟角色的动作与音频口型同步联动。
 
@@ -70,6 +77,7 @@ ai-interview/
 *(运行步骤待完善)*
 
 1. 克隆项目到本地
-2. 安装环境依赖 (如 `requirements.txt`)
-3. 下载相关模型并放置于 `models/` 目录下
-4. 运行 Streamlit 服务 (如 `streamlit run src/app.py`，具体视入口文件而定)
+2. 复制 `.env.example` 并重命名为 `.env`，根据需要配置环境变量
+3. 安装环境依赖：`pip install -r requirements.txt`
+4. 下载相关模型并放置于 `models/` 目录下
+5. 启动系统：`streamlit run src/app.py`

@@ -1,0 +1,13 @@
+# 全局配置文件
+server:
+  host: "0.0.0.0"
+  port: 8501
+
+models:
+  llm:
+    path: "models/Qwen3.5-4B"
+    temperature: 0.7
+  asr:
+    path: "models/FunASR-nano-2512"
+  tts:
+    path: "models/Fun-CosyVoice3-0.5B-2512"

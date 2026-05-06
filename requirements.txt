@@ -1,0 +1,6 @@
+streamlit>=1.30.0
+pydantic>=2.0.0
+# 后续根据模块需要补充，例如：
+# modelscope
+# funasr
+# pyyaml
